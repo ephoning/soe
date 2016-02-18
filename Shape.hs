@@ -6,8 +6,10 @@ module Shape (Shape(Rectangle, Ellipse, RtTriangle, Polygon),
 
 -- might have required '$ cabal install unicode-prelude unicode-show'
 -- this is a required import;
--- (otherwise π, ², and ⋅ (multiplication) give 'not in scope')
+-- (otherwise π and ⋅ (multiplication) give 'not in scope'; but ² still does not work)
+
 import Prelude.Unicode
+
 
 data Shape =
   Rectangle Side Side
