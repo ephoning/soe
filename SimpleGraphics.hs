@@ -2,23 +2,27 @@
 
 module SimpleGraphics where
 
-import Prelude.Unicode
 import Graphics.SOE
+import Prelude.Unicode
 
 spaceClose ∷ Window → IO ()
 spaceClose w = do k ← getKey w
                   if k ≡ ' ' then closeWindow w
                              else spaceClose w
-                         
+
+main1 ∷ IO ()
 main1 = runGraphics (
   do w ← openWindow "First Window" (300,300)
      drawInWindow w (text (100,200) "Hello")
      spaceClose w
   )
 
+pic1 ∷ Graphic
 pic1 = (withColor Blue (ellipse (150,150) (200,200)))
+pic2 ∷ Graphic
 pic2 = (withColor Red (polyline [(100,50),(150,150),(200,200),(70,60)]))
 
+main2 ∷ IO ()
 main2 = runGraphics (
   do w ← openWindow "First Window" (300,300)
      drawInWindow w (text (100,200) "Hello")
@@ -44,6 +48,7 @@ sierpinskiTri w c x y size =
              sierpinskiTri w c (x+size2) y size2
              sierpinskiTri w c x (y-size2) size2
 
+main3 ∷ IO ()
 main3 = runGraphics (
   do w ← openWindow "First Window" (400,400)
      sierpinskiTri w Blue 50 300 256
@@ -51,5 +56,3 @@ main3 = runGraphics (
      sierpinskiTri w Green 96 284 256
      spaceClose w
   )
-
-    

@@ -4,7 +4,7 @@ module Exercise_5_8 where
 
 import Prelude.Unicode
 
---ignoring wrap-around @ 255 for now
+-- ignoring wrap-around @ 255 for now
 
 encrypt ∷ String → String
 encrypt "" = ""
