@@ -4,7 +4,9 @@ module Exercise_7_2 where
 
 import Prelude.Unicode
 
-data InternalTree a = ILeaf | IBranch a (InternalTree a) (InternalTree a) deriving Show
+import Tree
+
+--data InternalTree a = ILeaf | IBranch a (InternalTree a) (InternalTree a) deriving Show
 
 takeTree ∷ Int → InternalTree a → InternalTree a
 takeTree _ ILeaf = ILeaf

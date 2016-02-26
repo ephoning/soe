@@ -2,11 +2,15 @@
 
 module Exercise_7_3 where
 
+import Tree
 import Prelude.Unicode
 
-data InternalTree a = ILeaf | IBranch a (InternalTree a) (InternalTree a) deriving Show
+treeRepeat ∷ a → InternalTree a
+treeRepeat x = IBranch x (treeRepeat x) (treeRepeat x)
 
--- treeFoldr ∷ (a → b → b) a → InternalTree b → b
+treeFoldr ∷ (a → b → b) → b → InternalTree a → b
+treeFoldr f a t = foldr f a (treeWalk t)
 
--- treeRepeat ∷ a → InternalTree a
+treeFoldl ∷ (a → b → a) → a → InternalTree b → a
+treeFoldl f a t = foldl f a (treeWalk t)
 
