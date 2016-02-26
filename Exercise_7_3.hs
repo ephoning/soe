@@ -9,8 +9,8 @@ treeRepeat ∷ a → InternalTree a
 treeRepeat x = IBranch x (treeRepeat x) (treeRepeat x)
 
 treeFoldr ∷ (a → b → b) → b → InternalTree a → b
-treeFoldr f a t = foldr f a (treeWalk t)
+treeFoldr f a t = foldr f a (treeWalkIn t)
 
 treeFoldl ∷ (a → b → a) → a → InternalTree b → a
-treeFoldl f a t = foldl f a (treeWalk t)
+treeFoldl f a t = foldl f a (treeWalkIn t)
 
